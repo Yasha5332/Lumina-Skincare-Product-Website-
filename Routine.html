@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/img/Logo (2).png" />
+    <title>Lumina | Routine Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .animate-fade-up {
+        animation: fadeUp 1s ease-out forwards;
+        opacity: 0;
+      }
+      .animate-fade-up-delay {
+        animation: fadeUp 1s ease-out 0.3s forwards;
+        opacity: 0;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Glassmorphism Utilities */
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      .glass-dark {
+        background: rgba(30, 20, 50, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      header {
+        background-image: url(./img/routine\ header.avif);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6B21A8",
+              secondary: "#FBCFE8",
+              surface: "#FFF1F2",
+            },
+            fontFamily: {
+              // This controls the navigation links
+              sans: ["Inter", "sans-serif"],
+              // This controls the "Lumina." logo
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-purple-200"
+  >
+    <div
+      class="bg-purple-900 text-white text-[10px] font-bold tracking-widest uppercase py-2"
+    >
+      <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div class="hidden md:flex space-x-6">
+          <a
+            href="#"
+            class="hover:text-pink-200 transition flex items-center gap-1"
+          >
+            <i data-lucide="map-pin" class="w-3 h-3"></i> Stores & Events
+          </a>
+          <a href="#" class="hover:text-pink-200 transition">Contact Us</a>
+        </div>
+        <div
+          class="flex space-x-6 w-full md:w-auto justify-between md:justify-end"
+        >
+          <span class="md:hidden">Free Shipping on Orders $50+</span>
+          <a
+            href="#"
+            class="hover:text-pink-200 transition flex items-center gap-1"
+          >
+            <i data-lucide="gift" class="w-3 h-3"></i> Beauty Insider Rewards
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <nav
+      id="main-nav"
+      class="sticky top-0 w-full z-50 bg-white shadow-sm border-b border-gray-100 transition-all duration-500 ease-in-out"
+    >
+      <div class="max-w-[90%] mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-20 gap-4">
+          <a
+            href="index.html"
+            class="text-2xl md:text-3xl font-serif font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-900 to-pink-600 flex-shrink-0"
+          >
+            Lumina.
+          </a>
+
+          <div
+            class="hidden xl:flex items-center space-x-5 font-bold text-[13px] tracking-widest uppercase text-gray-800 h-full"
+          >
+            <button class="flex items-center gap-1 focus:outline-none py-8">
+              <a href="index.html">Home</a>
+            </button>
+
+            <div
+              class="group h-full flex items-center border-b-2 border-transparent hover:border-purple-600 transition-all duration-300"
+            >
+              <button class="flex items-center gap-1 focus:outline-none py-8">
+                Shop
+                <i
+                  data-lucide="chevron-down"
+                  class="w-3 h-3 opacity-50 group-hover:rotate-180 transition duration-300"
+                ></i>
+              </button>
+              <div
+                class="absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top p-8"
+              >
+                <div class="max-w-7xl mx-auto grid grid-cols-4 gap-8">
+                  <div>
+                    <h4
+                      class="font-serif text-purple-900 text-lg mb-4 border-b border-purple-100 pb-2"
+                    >
+                      Categories
+                    </h4>
+                    <ul
+                      class="space-y-2 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                    >
+                      <li>
+                        <a
+                          href="category.html"
+                          class="hover:text-purple-600 block"
+                          >Skincare</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="category.html"
+                          class="hover:text-purple-600 block"
+                          >Makeup</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="category.html"
+                          class="hover:text-purple-600 block"
+                          >Hair</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="category.html"
+                          class="hover:text-purple-600 block"
+                          >Fragrance</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4
+                      class="font-serif text-purple-900 text-lg mb-4 border-b border-purple-100 pb-2"
+                    >
+                      More
+                    </h4>
+                    <ul
+                      class="space-y-2 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                    >
+                      <li>
+                        <a
+                          href="category.html"
+                          class="hover:text-purple-600 block"
+                          >Tools & Devices</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="category.html"
+                          class="hover:text-purple-600 block"
+                          >Sets & Value Kits</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4
+                      class="font-serif text-purple-900 text-lg mb-4 border-b border-purple-100 pb-2"
+                    >
+                      Trending
+                    </h4>
+                    <ul
+                      class="space-y-2 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                    >
+                      <li>
+                        <a
+                          href="category.html"
+                          class="hover:text-purple-600 block"
+                          >Best Sellers</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="category.html"
+                          class="hover:text-purple-600 block"
+                          >New Arrivals</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="bg-purple-50 p-4 rounded-xl">
+                    <p class="font-bold text-purple-900 mb-2 normal-case">
+                      New Collection
+                    </p>
+                    <img
+                      src="https://images.unsplash.com/photo-1556228720-1987df6a6e1a?w=400"
+                      class="w-full h-32 object-cover rounded-lg mb-2"
+                    />
+                    <a href="category.html" class="text-xs underline"
+                      >Shop Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="group h-full flex items-center border-b-2 border-transparent hover:border-purple-600 transition-all duration-300 relative"
+            >
+              <button class="flex items-center gap-1 focus:outline-none py-8">
+                Routine
+                <i
+                  data-lucide="chevron-down"
+                  class="w-3 h-3 opacity-50 group-hover:rotate-180 transition duration-300"
+                ></i>
+              </button>
+              <div
+                class="absolute top-full left-0 w-64 bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top p-6"
+              >
+                <ul
+                  class="space-y-3 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                >
+                  <li>
+                    <a href="/Routine.html" class="hover:text-purple-600 block"
+                      >Skincare Quiz</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/Routine.html" class="hover:text-purple-600 block"
+                      >Personalized Routine</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/Routine.html" class="hover:text-purple-600 block"
+                      >Treatment Plans</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="group h-full flex items-center border-b-2 border-transparent hover:border-purple-600 transition-all duration-300 relative"
+            >
+              <button class="flex items-center gap-1 focus:outline-none py-8">
+                Knowledge
+                <i
+                  data-lucide="chevron-down"
+                  class="w-3 h-3 opacity-50 group-hover:rotate-180 transition duration-300"
+                ></i>
+              </button>
+              <div
+                class="absolute top-full left-0 w-64 bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top p-6"
+              >
+                <ul
+                  class="space-y-3 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                >
+                  <li>
+                    <a href="knowledge.html" class="hover:text-purple-600 block"
+                      >Ingredient Dictionary</a
+                    >
+                  </li>
+                  <li>
+                    <a href="knowledge.html" class="hover:text-purple-600 block"
+                      >Skincare 101</a
+                    >
+                  </li>
+                  <li>
+                    <a href="knowledge.html" class="hover:text-purple-600 block"
+                      >Dermatologist Tips</a
+                    >
+                  </li>
+                  <li>
+                    <a href="knowledge.html" class="hover:text-purple-600 block"
+                      >Product Guides</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="group h-full flex items-center border-b-2 border-transparent hover:border-purple-600 transition-all duration-300 relative"
+            >
+              <button class="flex items-center gap-1 focus:outline-none py-8">
+                Consult
+                <i
+                  data-lucide="chevron-down"
+                  class="w-3 h-3 opacity-50 group-hover:rotate-180 transition duration-300"
+                ></i>
+              </button>
+              <div
+                class="absolute top-full left-0 w-64 bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top p-6"
+              >
+                <ul
+                  class="space-y-3 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                >
+                  <li>
+                    <a href="consult.html" class="hover:text-purple-600 block"
+                      >Online Consultation</a
+                    >
+                  </li>
+                  <li>
+                    <a href="consult.html" class="hover:text-purple-600 block"
+                      >Prescription Treatments</a
+                    >
+                  </li>
+                  <li>
+                    <a href="consult.html" class="hover:text-purple-600 block"
+                      >Follow-up Care</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="group h-full flex items-center border-b-2 border-transparent hover:border-pink-600 transition-all duration-300 relative"
+            >
+              <a
+                href="#"
+                class="flex items-center gap-1 hover:text-pink-700 py-8"
+              >
+                Offers
+                <i
+                  data-lucide="chevron-down"
+                  class="w-3 h-3 opacity-50 group-hover:rotate-180 transition duration-300"
+                ></i>
+              </a>
+              <div
+                class="absolute top-full left-0 w-64 bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top p-6"
+              >
+                <ul
+                  class="space-y-3 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                >
+                  <li>
+                    <a href="offers.html" class="hover:text-purple-600 block"
+                      >Rewards & Membership</a
+                    >
+                  </li>
+                  <li>
+                    <a href="offers.html" class="hover:text-purple-600 block"
+                      >Free Gifts & Samples</a
+                    >
+                  </li>
+                  <li>
+                    <a href="offers.html" class="hover:text-purple-600 block"
+                      >Sale & Promotions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="group h-full flex items-center border-b-2 border-transparent hover:border-purple-600 transition-all duration-300 relative"
+            >
+              <button class="flex items-center gap-1 focus:outline-none py-8">
+                Community
+                <i
+                  data-lucide="chevron-down"
+                  class="w-3 h-3 opacity-50 group-hover:rotate-180 transition duration-300"
+                ></i>
+              </button>
+              <div
+                class="absolute top-full left-0 w-64 bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top p-6"
+              >
+                <ul
+                  class="space-y-3 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                >
+                  <li>
+                    <a href="community.html" class="hover:text-purple-600 block"
+                      >Reviews & Results</a
+                    >
+                  </li>
+                  <li>
+                    <a href="community.html" class="hover:text-purple-600 block"
+                      >Before & After Gallery</a
+                    >
+                  </li>
+                  <li>
+                    <a href="community.html" class="hover:text-purple-600 block"
+                      >Expert Q&A</a
+                    >
+                  </li>
+                  <li>
+                    <a href="community.html" class="hover:text-purple-600 block"
+                      >Blog & Stories</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="group h-full flex items-center border-b-2 border-transparent hover:border-purple-600 transition-all duration-300 relative"
+            >
+              <button class="flex items-center gap-1 focus:outline-none py-8">
+                Help
+                <i
+                  data-lucide="chevron-down"
+                  class="w-3 h-3 opacity-50 group-hover:rotate-180 transition duration-300"
+                ></i>
+              </button>
+              <div
+                class="absolute top-full right-0 w-56 bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top p-6"
+              >
+                <ul
+                  class="space-y-3 text-sm text-gray-600 font-medium normal-case tracking-normal"
+                >
+                  <li>
+                    <a href="Help.html" class="hover:text-purple-600 block"
+                      >Order Tracking</a
+                    >
+                  </li>
+                  <li>
+                    <a href="Help.html" class="hover:text-purple-600 block"
+                      >FAQ</a
+                    >
+                  </li>
+                  <li>
+                    <a href="Help.html" class="hover:text-purple-600 block"
+                      >Returns & Shipping</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="hidden xl:block flex-grow max-w-[200px] mx-4">
+            <div class="relative group">
+              <input
+                type="text"
+                placeholder="Search..."
+                class="w-full bg-gray-100 text-sm text-gray-900 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-purple-200 focus:bg-white transition-all border border-transparent focus:border-purple-100"
+              />
+              <button
+                class="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-purple-900 hover:text-pink-600 transition"
+              >
+                <i data-lucide="search" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 md:gap-6">
+            <div class="relative group cursor-pointer">
+              <button
+                class="text-gray-500 hover:text-purple-900 transition focus:outline-none"
+              >
+                <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                <span
+                  class="absolute -top-1 -right-1 bg-gradient-to-r from-purple-700 to-pink-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold font-sans"
+                  >2</span
+                >
+              </button>
+            </div>
+
+            <div
+              class="hidden xl:flex items-center gap-3 border-l border-gray-200 pl-4"
+            >
+              <a
+                href="login.html"
+                class="text-[10px] font-bold text-gray-500 hover:text-purple-900 uppercase tracking-widest transition"
+                >Log In</a
+              >
+              <a
+                href="signup.html"
+                class="px-5 py-2 bg-gray-900 hover:bg-purple-900 text-white text-[10px] font-bold uppercase tracking-widest rounded-full transition shadow-lg"
+                >Sign Up</a
+              >
+            </div>
+
+            <button
+              id="mobile-menu-btn"
+              class="xl:hidden text-gray-600 hover:text-purple-900 p-1 focus:outline-none"
+            >
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="hidden bg-white border-t border-gray-100 w-full shadow-xl max-h-[80vh] overflow-y-auto absolute left-0 top-20 z-40"
+      >
+        <div class="p-4 space-y-1">
+          <div class="mb-4">
+            <input
+              type="text"
+              placeholder="Search..."
+              class="w-full bg-gray-100 rounded-lg px-4 py-2 text-sm"
+            />
+          </div>
+
+          <a
+            href="index.html"
+            class="block py-3 px-2 font-bold text-gray-800 border-b border-gray-50"
+            >Home</a
+          >
+
+          <div class="border-b border-gray-50">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center py-3 px-2 font-bold text-gray-800 cursor-pointer list-none"
+              >
+                Shop
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 text-gray-400 group-open:rotate-180 transition"
+                ></i>
+              </summary>
+              <div
+                class="pl-4 pb-4 bg-gray-50/50 space-y-2 text-sm text-gray-600"
+              >
+                <a href="category.html" class="block py-1">Skincare</a>
+                <a href="category.html" class="block py-1">Makeup</a>
+                <a href="category.html" class="block py-1">Hair</a>
+                <a href="category.html" class="block py-1">Fragrance</a>
+                <a href="category.html" class="block py-1">Tools & Devices</a>
+                <a
+                  href="category.html"
+                  class="block py-1 font-bold text-purple-700"
+                  >Best Sellers</a
+                >
+              </div>
+            </details>
+          </div>
+
+          <div class="border-b border-gray-50">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center py-3 px-2 font-bold text-gray-800 cursor-pointer list-none"
+              >
+                Routine Finder
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 text-gray-400 group-open:rotate-180 transition"
+                ></i>
+              </summary>
+              <div
+                class="pl-4 pb-4 bg-gray-50/50 space-y-2 text-sm text-gray-600"
+              >
+                <a href="Routine.html" class="block py-1">Skincare Quiz</a>
+                <a href="Routine.html" class="block py-1"
+                  >Personalized Routine</a
+                >
+                <a href="Routine.html" class="block py-1">Treatment Plans</a>
+              </div>
+            </details>
+          </div>
+
+          <div class="border-b border-gray-50">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center py-3 px-2 font-bold text-gray-800 cursor-pointer list-none"
+              >
+                Ingredients & Knowledge
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 text-gray-400 group-open:rotate-180 transition"
+                ></i>
+              </summary>
+              <div
+                class="pl-4 pb-4 bg-gray-50/50 space-y-2 text-sm text-gray-600"
+              >
+                <a href="knowledge.html" class="block py-1"
+                  >Ingredient Dictionary</a
+                >
+                <a href="knowledge.html" class="block py-1">Skincare 101</a>
+                <a href="knowledge.html" class="block py-1"
+                  >Dermatologist Tips</a
+                >
+              </div>
+            </details>
+          </div>
+
+          <div class="border-b border-gray-50">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center py-3 px-2 font-bold text-gray-800 cursor-pointer list-none"
+              >
+                Consultation
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 text-gray-400 group-open:rotate-180 transition"
+                ></i>
+              </summary>
+              <div
+                class="pl-4 pb-4 bg-gray-50/50 space-y-2 text-sm text-gray-600"
+              >
+                <a href="consult.html" class="block py-1"
+                  >Online Consultation</a
+                >
+                <a href="consult.html" class="block py-1"
+                  >Prescription Treatments</a
+                >
+                <a href="consult.html" class="block py-1">Follow-up Care</a>
+              </div>
+            </details>
+          </div>
+
+          <div class="border-b border-gray-50">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center py-3 px-2 font-bold text-pink-600 cursor-pointer list-none"
+              >
+                Offers
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 text-pink-300 group-open:rotate-180 transition"
+                ></i>
+              </summary>
+              <div
+                class="pl-4 pb-4 bg-pink-50/50 space-y-2 text-sm text-gray-600"
+              >
+                <a href="offers.html" class="block py-1"
+                  >Rewards & Membership</a
+                >
+                <a href="offers.html" class="block py-1"
+                  >Free Gifts & Samples</a
+                >
+                <a href="offers.html" class="block py-1">Sale & Promotions</a>
+              </div>
+            </details>
+          </div>
+
+          <div class="border-b border-gray-50">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center py-3 px-2 font-bold text-gray-800 cursor-pointer list-none"
+              >
+                Community
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 text-gray-400 group-open:rotate-180 transition"
+                ></i>
+              </summary>
+              <div
+                class="pl-4 pb-4 bg-gray-50/50 space-y-2 text-sm text-gray-600"
+              >
+                <a href="community.html" class="block py-1"
+                  >Reviews & Results</a
+                >
+                <a href="community.html" class="block py-1"
+                  >Before & After Gallery</a
+                >
+                <a href="community.html" class="block py-1">Blog & Stories</a>
+              </div>
+            </details>
+          </div>
+
+          <div class="border-b border-gray-50">
+            <details class="group">
+              <summary
+                class="flex justify-between items-center py-3 px-2 font-bold text-gray-800 cursor-pointer list-none"
+              >
+                Help
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 text-gray-400 group-open:rotate-180 transition"
+                ></i>
+              </summary>
+              <div
+                class="pl-4 pb-4 bg-gray-50/50 space-y-2 text-sm text-gray-600"
+              >
+                <a href="Help.html" class="block py-1">Order Tracking</a>
+                <a href="Help.html" class="block py-1">FAQ</a>
+                <a href="Help.html" class="block py-1">Returns & Shipping</a>
+              </div>
+            </details>
+          </div>
+
+          <div class="pt-4 flex gap-4 px-2">
+            <a
+              href="login.html"
+              class="flex-1 bg-gray-100 text-center py-2 rounded-lg text-sm font-bold text-gray-700"
+              >Log In</a
+            >
+            <a
+              href="signup.html"
+              class="flex-1 bg-purple-900 text-center py-2 rounded-lg text-sm font-bold text-white"
+              >Sign Up</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
+    >
+      <div class="absolute inset-0 bg-gray-900/10"></div>
+
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-4 w-full flex md:justify-end"
+      >
+        <div
+          class="md:max-w-xl animate-fade-up glass p-10 md:p-14 rounded-[2rem] shadow-2xl backdrop-blur-xl border border-white/40 bg-white/30"
+        >
+          <div class="flex items-center gap-3 mb-6">
+            <span
+              class="inline-block px-3 py-1 bg-purple-900 text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full"
+              >AI Analysis</span
+            >
+            <span
+              class="text-xs font-bold text-purple-900 uppercase tracking-widest"
+              >3 Minutes</span
+            >
+          </div>
+
+          <h1
+            class="text-4xl md:text-6xl font-serif text-gray-900 font-bold mb-6 leading-[1.1]"
+          >
+            Your Skin,<br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-pink-600"
+              >Decoded.</span
+            >
+          </h1>
+
+          <p class="text-lg text-gray-800 mb-10 font-medium leading-relaxed">
+            Stop guessing. Our dermatologist-verified AI builds a custom routine
+            based on your unique biology, environment, and lifestyle goals.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button
+              class="px-8 py-4 bg-gray-900 text-white font-bold uppercase tracking-widest text-xs rounded-full hover:bg-purple-900 transition shadow-xl transform hover:-translate-y-1"
+            >
+              Take the Quiz
+            </button>
+            <button
+              class="px-8 py-4 border-2 border-gray-900 text-gray-900 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-gray-900 hover:text-white transition"
+            >
+              How it Works
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-900"
+      >
+        <i data-lucide="arrow-down" class="w-8 h-8"></i>
+      </div>
+    </header>
+
+    <section
+      class="py-32 relative overflow-hidden bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')]"
+    >
+      <div class="absolute inset-0 bg-white/90"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-20">
+          <span
+            class="text-purple-600 font-bold uppercase text-xs tracking-widest"
+            >The Process</span
+          >
+          <h2 class="text-4xl md:text-5xl font-serif text-gray-900 mt-3 mb-6">
+            Science-Backed Personalization
+          </h2>
+          <p class="text-gray-500 max-w-2xl mx-auto text-lg font-light">
+            We analyze over 40 factors including genetics, environment, and
+            lifestyle to prescribe your perfect formula.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="glass p-10 rounded-3xl hover:-translate-y-2 transition duration-500 group border border-white/50 shadow-sm hover:shadow-xl bg-white/40 backdrop-blur-sm"
+          >
+            <div
+              class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-purple-900 transition duration-500"
+            >
+              <i
+                data-lucide="clipboard-list"
+                class="w-8 h-8 text-purple-600 group-hover:text-white transition duration-500"
+              ></i>
+            </div>
+            <h3 class="font-serif font-bold text-gray-900 text-2xl mb-4">
+              1. The Quiz
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Tell us about your skin history, sensitivity, and goals. Upload
+              photos for AI analysis.
+            </p>
+          </div>
+
+          <div
+            class="glass p-10 rounded-3xl hover:-translate-y-2 transition duration-500 group border border-white/50 shadow-sm hover:shadow-xl bg-white/40 backdrop-blur-sm"
+          >
+            <div
+              class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-pink-600 transition duration-500"
+            >
+              <i
+                data-lucide="microscope"
+                class="w-8 h-8 text-pink-600 group-hover:text-white transition duration-500"
+              ></i>
+            </div>
+            <h3 class="font-serif font-bold text-gray-900 text-2xl mb-4">
+              2. Derm Review
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Our algorithm drafts a plan, and a board-certified dermatologist
+              verifies every ingredient.
+            </p>
+          </div>
+
+          <div
+            class="glass p-10 rounded-3xl hover:-translate-y-2 transition duration-500 group border border-white/50 shadow-sm hover:shadow-xl bg-white/40 backdrop-blur-sm"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 transition duration-500"
+            >
+              <i
+                data-lucide="flask-conical"
+                class="w-8 h-8 text-blue-600 group-hover:text-white transition duration-500"
+              ></i>
+            </div>
+            <h3 class="font-serif font-bold text-gray-900 text-2xl mb-4">
+              3. Custom Formula
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Receive a prescription cream compounded specifically for your
+              needs, shipped to your door.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 bg-gray-900 text-white relative overflow-hidden">
+      <div
+        class="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-900/30 rounded-full blur-[100px] -mr-32 -mt-32"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-pink-900/20 rounded-full blur-[100px] -ml-20 -mb-20"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="animate-fade-up">
+            <span
+              class="text-pink-400 font-bold uppercase text-xs tracking-widest"
+              >Your Digital Dashboard</span
+            >
+            <h2 class="text-4xl md:text-5xl font-serif mt-4 mb-8 leading-tight">
+              A Routine That <br />Evolves With You
+            </h2>
+            <p class="text-gray-300 text-lg mb-10 font-light leading-relaxed">
+              No more confusion about what to apply and when. Your personalized
+              dashboard breaks down your AM and PM steps, tracks your progress,
+              and adjusts as your skin improves.
+            </p>
+            <div class="space-y-6">
+              <div
+                class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400"
+                >
+                  <i data-lucide="check" class="w-5 h-5"></i>
+                </div>
+                <span class="font-medium tracking-wide"
+                  >Step-by-step application guide</span
+                >
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400"
+                >
+                  <i data-lucide="check" class="w-5 h-5"></i>
+                </div>
+                <span class="font-medium tracking-wide"
+                  >Ingredient conflict checker</span
+                >
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400"
+                >
+                  <i data-lucide="check" class="w-5 h-5"></i>
+                </div>
+                <span class="font-medium tracking-wide"
+                  >Monthly dermatologist check-ins</span
+                >
+              </div>
+            </div>
+            <button
+              class="mt-12 px-10 py-4 bg-white text-gray-900 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-purple-100 transition shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+            >
+              View Sample Routine
+            </button>
+          </div>
+
+          <div
+            class="glass-dark rounded-[2.5rem] p-8 md:p-12 relative transform rotate-1 hover:rotate-0 transition duration-700 animate-fade-up-delay"
+          >
+            <div
+              class="flex justify-between items-center mb-10 border-b border-white/10 pb-6"
+            >
+              <div>
+                <p
+                  class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1"
+                >
+                  Current Regimen
+                </p>
+                <h3 class="text-2xl font-serif text-white">Morning Routine</h3>
+              </div>
+              <div
+                class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center border border-yellow-500/50 shadow-[0_0_15px_rgba(234,179,8,0.3)]"
+              >
+                <i data-lucide="sun" class="w-6 h-6 text-yellow-400"></i>
+              </div>
+            </div>
+
+            <div class="space-y-8 relative pl-10 border-l border-white/10 ml-5">
+              <div class="relative group cursor-pointer">
+                <div
+                  class="absolute -left-[51px] bg-gray-900 border border-purple-500 w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-purple-500 transition duration-300 shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                >
+                  <span class="text-xs font-bold text-white">1</span>
+                </div>
+                <h4 class="font-bold text-white text-lg">Gentle Cleanser</h4>
+                <p class="text-sm text-gray-400">Lumina Hydrating Wash</p>
+              </div>
+              <div class="relative group cursor-pointer">
+                <div
+                  class="absolute -left-[51px] bg-gray-900 border border-purple-500 w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-purple-500 transition duration-300 shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                >
+                  <span class="text-xs font-bold text-white">2</span>
+                </div>
+                <h4 class="font-bold text-white text-lg">Vitamin C Serum</h4>
+                <p class="text-sm text-gray-400">Brightening Complex 15%</p>
+              </div>
+              <div class="relative group cursor-pointer">
+                <div
+                  class="absolute -left-[51px] bg-gray-900 border border-purple-500 w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-purple-500 transition duration-300 shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                >
+                  <span class="text-xs font-bold text-white">3</span>
+                </div>
+                <h4 class="font-bold text-white text-lg">Moisturizer + SPF</h4>
+                <p class="text-sm text-gray-400">Daily Defense Lotion</p>
+              </div>
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-white/10 text-center">
+              <a
+                href="#"
+                class="text-xs font-bold text-purple-300 uppercase tracking-widest hover:text-white transition"
+                >Switch to Night Routine →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 bg-gray-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-20">
+          <h2 class="text-3xl md:text-5xl font-serif text-gray-900 mb-6">
+            Choose Your Treatment Plan
+          </h2>
+          <p class="text-gray-500 text-lg">
+            Flexible plans tailored to your skin goals. Cancel or pause anytime.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center"
+        >
+          <div
+            class="bg-white rounded-[2rem] p-10 shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300"
+          >
+            <h3 class="font-bold text-gray-900 text-xl tracking-wide">
+              Essentials
+            </h3>
+            <div class="my-6">
+              <span class="text-5xl font-serif font-bold text-gray-900"
+                >$29</span
+              >
+              <span class="text-gray-400 font-medium">/mo</span>
+            </div>
+            <p class="text-sm text-gray-500 mb-8 min-h-[40px] leading-relaxed">
+              Perfect for maintaining healthy, balanced skin without
+              prescription actives.
+            </p>
+            <button
+              class="w-full py-4 border-2 border-purple-900 text-purple-900 font-bold text-xs uppercase rounded-xl hover:bg-purple-50 transition"
+            >
+              Select Plan
+            </button>
+            <div class="mt-8 space-y-4">
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="check" class="w-5 h-5 text-purple-600"></i>
+                Daily Cleanser
+              </p>
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="check" class="w-5 h-5 text-purple-600"></i>
+                Daily Moisturizer
+              </p>
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="check" class="w-5 h-5 text-purple-600"></i>
+                Routine App Access
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-[2rem] p-10 shadow-2xl border-2 border-purple-500 relative transform md:-translate-y-4 z-10"
+          >
+            <div
+              class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-800 to-pink-600 text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg"
+            >
+              Most Popular
+            </div>
+            <h3 class="font-bold text-purple-900 text-xl tracking-wide">
+              Prescription +
+            </h3>
+            <div class="my-6">
+              <span class="text-6xl font-serif font-bold text-gray-900"
+                >$59</span
+              >
+              <span class="text-gray-400 font-medium">/mo</span>
+            </div>
+            <p class="text-sm text-gray-500 mb-8 min-h-[40px] leading-relaxed">
+              Medical-grade actives compounded specifically for acne or
+              anti-aging goals.
+            </p>
+            <button
+              class="w-full py-4 bg-gray-900 text-white font-bold text-xs uppercase rounded-xl hover:bg-purple-900 transition shadow-lg hover:shadow-purple-500/25"
+            >
+              Start Quiz
+            </button>
+            <div class="mt-8 space-y-4">
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i
+                  data-lucide="star"
+                  class="w-5 h-5 text-yellow-500 fill-current"
+                ></i>
+                <strong>Custom Prescription Cream</strong>
+              </p>
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="check" class="w-5 h-5 text-purple-600"></i>
+                Unlimited Derm Messaging
+              </p>
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="check" class="w-5 h-5 text-purple-600"></i> Free
+                Reformulations
+              </p>
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="check" class="w-5 h-5 text-purple-600"></i>
+                Includes Essentials Kit
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-[2rem] p-10 shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300"
+          >
+            <h3 class="font-bold text-gray-900 text-xl tracking-wide">
+              Total Care
+            </h3>
+            <div class="my-6">
+              <span class="text-5xl font-serif font-bold text-gray-900"
+                >$89</span
+              >
+              <span class="text-gray-400 font-medium">/mo</span>
+            </div>
+            <p class="text-sm text-gray-500 mb-8 min-h-[40px] leading-relaxed">
+              The complete regimen including oral medications and priority video
+              support.
+            </p>
+            <button
+              class="w-full py-4 border-2 border-purple-900 text-purple-900 font-bold text-xs uppercase rounded-xl hover:bg-purple-50 transition"
+            >
+              Select Plan
+            </button>
+            <div class="mt-8 space-y-4">
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="check" class="w-5 h-5 text-purple-600"></i>
+                Everything in Prescription +
+              </p>
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="check" class="w-5 h-5 text-purple-600"></i> Oral
+                Medication (if eligible)
+              </p>
+              <p class="flex items-center text-sm text-gray-600 gap-3">
+                <i data-lucide="video" class="w-5 h-5 text-purple-600"></i>
+                Quarterly Video Consults
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="bg-gradient-to-r from-purple-900 to-gray-900 py-24 text-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"
+      ></div>
+
+      <div class="max-w-3xl mx-auto px-4 relative z-10">
+        <h2 class="text-4xl md:text-5xl font-serif mb-8 leading-tight">
+          Ready to meet your skin?
+        </h2>
+        <p class="mb-10 text-purple-200 text-lg max-w-xl mx-auto font-light">
+          The consultation is free. You only pay if you decide to order your
+          personalized formula.
+        </p>
+        <button
+          class="px-12 py-5 bg-white text-gray-900 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-purple-100 transition shadow-[0_0_40px_rgba(255,255,255,0.3)] transform hover:-translate-y-1"
+        >
+          Start Free Consultation
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+      // Initialize Lucide Icons
+      lucide.createIcons();
+    </script>
+    <footer
+      class="bg-gradient-to-br from-gray-900 via-[#1a0b2e] to-purple-900 text-white py-20 border-t border-purple-900/30"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16"
+      >
+        <div class="col-span-1 md:col-span-1">
+          <span
+            class="text-3xl font-serif font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+            >Lumina.</span
+          >
+          <p class="mt-8 text-gray-400 text-sm leading-relaxed font-light">
+            The precision of dermatology meets the joy of discovery. <br />Based
+            in New York, NY.
+          </p>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]"
+          >
+            Shop
+          </h4>
+          <ul class="space-y-4 text-sm text-gray-400 font-light">
+            <li>
+              <a href="#" class="hover:text-pink-400 transition">Custom Rx</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-400 transition">Cleansers</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-400 transition"
+                >Moisturizers</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-400 transition">Suncare</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]"
+          >
+            Company
+          </h4>
+          <ul class="space-y-4 text-sm text-gray-400 font-light">
+            <li>
+              <a href="#about" class="hover:text-pink-400 transition"
+                >Philosophy</a
+              >
+            </li>
+            <li>
+              <a href="#mission" class="hover:text-pink-400 transition"
+                >Mission</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-400 transition">Careers</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-400 transition">Press</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]"
+          >
+            Legal
+          </h4>
+          <ul class="space-y-4 text-sm text-gray-400 font-light">
+            <li>
+              <a href="#" class="hover:text-pink-400 transition"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-400 transition"
+                >Terms of Service</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-400 transition"
+                >Medical Disclaimer</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-4 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-light"
+      >
+        <p>&copy; 2024 Lumina Beauty Inc. All rights reserved.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="#" class="hover:text-pink-400 transition">Instagram</a>
+          <a href="#" class="hover:text-pink-400 transition">TikTok</a>
+          <a href="#" class="hover:text-pink-400 transition">Twitter</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina | Superfood Cleanser</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        .modal-overlay { background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); }
+        .animate-fade-up { animation: fadeUp 0.8s ease-out forwards; opacity: 0; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+     <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6B21A8",
+              secondary: "#FBCFE8",
+              surface: "#FFF1F2",
+            },
+            fontFamily: {
+              // This controls the navigation links
+              sans: ["Inter", "sans-serif"],
+              // This controls the "Lumina." logo
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+    <nav class="fixed w-full z-40 bg-white/90 backdrop-blur-lg border-b border-pink-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-pink-600">LUMINA</a>
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="category.html" class="text-gray-600 hover:text-purple-700 transition">Shop Categories</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-700 transition">Concerns</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="relative text-gray-500 hover:text-purple-700"><i data-lucide="shopping-bag" class="w-6 h-6"></i></button>
+                    <button onclick="toggleModal('login-modal')" class="flex items-center gap-2 text-sm font-bold text-purple-900 border border-purple-200 px-4 py-2 rounded-full hover:bg-purple-50 transition"><i data-lucide="user" class="w-4 h-4"></i> Log In</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 animate-fade-up">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <div class="space-y-4">
+                <div class="aspect-[4/5] bg-gray-100 rounded-3xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?w=800" class="w-full h-full object-cover">
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1556228720-1957be979e2c?w=200" class="w-full h-full object-cover opacity-60 hover:opacity-100 cursor-pointer"></div>
+                    <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200" class="w-full h-full object-cover opacity-60 hover:opacity-100 cursor-pointer"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="mb-6">
+                    <h1 class="text-3xl font-bold text-gray-900">Superfood Cleanser</h1>
+                    <p class="text-lg text-gray-500 font-medium">Youth To The People</p>
+                    <div class="flex items-center gap-2 mt-2">
+                        <div class="flex text-yellow-400"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                        <span class="text-sm text-gray-500 underline decoration-gray-300">124 reviews</span>
+                    </div>
+                </div>
+                <div class="border-t border-b border-gray-100 py-6 mb-6">
+                    <div class="text-2xl font-bold text-purple-900">$36.00</div>
+                    <p class="text-xs text-gray-400 mt-1">or 4 interest-free payments of $9.00 with <span class="font-bold">Afterpay</span></p>
+                </div>
+                <ul class="space-y-2 mb-8 text-sm text-gray-600">
+                    <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> Removes makeup without stripping</li>
+                    <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> Packed with Kale and Spinach</li>
+                </ul>
+                <button class="w-full bg-purple-900 text-white font-bold py-4 rounded-full hover:bg-purple-800 transition shadow-lg shadow-purple-200 mb-6">Add to Cart</button>
+                <div class="bg-surface p-6 rounded-2xl space-y-4">
+                    <h3 class="font-bold text-purple-900">Why You Need It</h3>
+                    <div class="space-y-3">
+                        <div class="text-sm"><span class="font-bold text-gray-900">Kale:</span> <span class="text-gray-600">Rich in phytonutrients and vitamins C, E, and K to strengthen skin health.</span></div>
+                    </div>
+                    <div class="pt-4 border-t border-pink-200">
+                        <p class="text-xs font-bold uppercase text-gray-500 mb-2">Best For:</p>
+                        <div class="flex gap-2"><span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs">Oily</span><span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs">Combo</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 mt-20 border-t border-gray-100 pt-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900">Reviews</h2>
+                <button onclick="toggleModal('review-modal')" class="bg-gray-900 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-gray-800">Write a Review</button>
+            </div>
+            <div class="border-b border-gray-100 pb-8 mb-8">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2"><span class="font-bold text-gray-900">Jessica M.</span><span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">Oily Skin</span></div>
+                    <span class="text-xs text-gray-400">2 days ago</span>
+                </div>
+                <div class="flex text-yellow-400 mb-2"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                <h4 class="font-bold text-sm mb-1">Holy Grail Cleanser</h4>
+                <p class="text-gray-600 text-sm">Smells like a green juice and makes my face feel so clean but not tight.</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="review-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="absolute inset-0 modal-overlay" onclick="toggleModal('review-modal')"></div>
+        <div class="relative bg-white w-full max-w-lg rounded-2xl p-8 shadow-2xl m-4">
+            <button onclick="toggleModal('review-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900"><i data-lucide="x" class="w-5 h-5"></i></button>
+            <h2 class="text-xl font-bold text-gray-900 mb-1">Write a Review</h2>
+            <form onsubmit="event.preventDefault(); alert('Review submitted!'); toggleModal('review-modal');">
+                <div class="flex justify-center mb-6 gap-2"><i data-lucide="star" class="w-8 h-8 text-gray-300 hover:text-yellow-400 fill-current"></i><i data-lucide="star" class="w-8 h-8 text-gray-300 hover:text-yellow-400 fill-current"></i><i data-lucide="star" class="w-8 h-8 text-gray-300 hover:text-yellow-400 fill-current"></i><i data-lucide="star" class="w-8 h-8 text-gray-300 hover:text-yellow-400 fill-current"></i><i data-lucide="star" class="w-8 h-8 text-gray-300 hover:text-yellow-400 fill-current"></i></div>
+                <input type="text" placeholder="Headline" class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
+                <textarea rows="3" placeholder="Review" class="w-full border border-gray-300 rounded px-3 py-2 mb-4"></textarea>
+                <button class="w-full bg-purple-900 text-white font-bold py-3 rounded-lg hover:bg-purple-800">Submit Review</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="login-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 modal-overlay" onclick="toggleModal('login-modal')"></div>
+        <div class="absolute right-0 top-0 h-full w-full md:w-[450px] bg-white shadow-2xl p-8 flex flex-col">
+            <button onclick="toggleModal('login-modal')" class="absolute top-6 right-6 text-gray-400 hover:text-gray-900"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-2">Welcome to Lumina</h2>
+            <div class="flex border-b border-gray-200 mb-6 mt-4"><button class="flex-1 pb-3 border-b-2 border-purple-900 font-bold text-purple-900">Log In</button><button class="flex-1 pb-3 border-b-2 border-transparent text-gray-400">Sign Up</button></div>
+            <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4">
+            <button class="w-full bg-purple-900 text-white font-bold py-3 rounded-lg hover:bg-purple-800">Sign In</button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function toggleModal(modalId) { document.getElementById(modalId).classList.toggle('hidden'); }
+    </script>
+</body>
+</html>
